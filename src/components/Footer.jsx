@@ -11,11 +11,11 @@ function Footer() {
       <div className="w-full max-w-[1440px] mx-auto px-12 md:px-24 lg:px-32 grid grid-cols-1 md:grid-cols-3 items-baseline gap-8 md:gap-4">
         
         <div className="text-xl font-bold text-white tracking-wide text-center md:text-left">
-          LTK<span className="text-purple-800">.</span>
+          LTK<span className="text-purple-300">.</span>
         </div>
 
         <div className="flex flex-col items-center gap-3">
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 text-sm text-gray-400 font-medium">
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-6 text-sm text-gray-400 font-medium">
             <a href="#about" className="hover:text-white transition-colors">About</a>
             <a href="#experience" className="hover:text-white transition-colors">Experience</a>
             <a href="#projects" className="hover:text-white transition-colors">Projects</a>

@@ -29,13 +29,13 @@ function Navbar() {
           : 'bg-transparent py-6 border-b border-transparent'                        // Khi ở trên cùng: Trong suốt, không viền, padding to
       }`}
     >
-      <div className="max-w-[1980px] mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="w-full max-w-[1440px] mx-auto px-12 md:px-24 lg:px-32 flex items-center justify-between">
         
         <a href="#home" className="text-xl font-bold text-white font-sans tracking-wider hover:opacity-80 transition-opacity">
-          LTK<span className="text-neon-accent">.</span>
+          LTK<span className="text-purple-300">.</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex pl-7 items-center gap-8">
           {menuItems.map((item) => (
             <a 
               key={item} 
@@ -44,14 +44,14 @@ function Navbar() {
             >
               {item}
               {/* Hiệu ứng gạch chân khi hover giống mẫu */}
-              <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-neon-accent transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-1/2 -bottom-1 w-0 h-[1.5px] bg-purple-300 transition-all duration-300 group-hover:w-full -translate-x-1/2"></span>
             </a>
           ))}
         </div>
 
         <a 
           href="#contact" 
-          className="hidden md:inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-white bg-neon-accent/10 border border-neon-accent/30 rounded-full hover:bg-neon-accent/20 hover:border-neon-accent hover:shadow-[0_0_15px_rgba(0,243,255,0.3)] transition-all duration-300 font-sans"
+          className="hidden md:inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-white bg-purple-300/10 border border-purple-300/30 rounded-full hover:bg-purple-300/20 hover:border-purple-300 hover:shadow-[0_0_15px_rgba(0,243,255,0.3)] transition-all duration-300 font-sans"
         >
           Let's Talk
         </a>
