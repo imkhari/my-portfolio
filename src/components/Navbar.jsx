@@ -53,7 +53,7 @@ function Navbar() {
           href="#contact" 
           className="hidden md:inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-white bg-purple-300/10 border border-purple-300/30 rounded-full hover:bg-purple-300/20 hover:border-purple-300 hover:shadow-[0_0_15px_rgba(0,243,255,0.3)] transition-all duration-300 font-sans"
         >
-          Let's Talk
+          Let's Talk!
         </a>
 
         <button className="md:hidden text-gray-300 hover:text-white">
