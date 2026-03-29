@@ -1,64 +1,37 @@
 import React from 'react';
 
 function Footer() {
-  // Setup các link mạng xã hội thực tế của bạn
-  const socialLinks = [
-    { 
-      name: 'GitHub', 
-      url: 'https://github.com/imkhari', // Thay bằng link thật của bạn
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
-    },
-    { 
-      name: 'LinkedIn', 
-      url: 'https://linkedin.com/in/yourusername', // Thay bằng link thật của bạn
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg'
-    },
-    { 
-      name: 'Email', 
-      url: 'mailto:your.email@example.com', // Thay bằng email thật của bạn
-      // Dùng icon thư đơn giản
-      icon: 'https://api.dicebear.com/8.x/icons/svg?seed=mail&backgroundColor=transparent'
-    }
-  ];
-
   return (
-    // Dùng nav-bg để làm màu nền khác biệt một chút với body tối
-    <footer className="w-full bg-nav-bg py-10 px-6 mt-16 relative z-10 font-preah">
+    <footer className="w-full relative z-20 border-t border-white/5 py-10 mt-16 font-sans">
       
-      {/* Hiệu ứng viền phát sáng mờ ở đỉnh footer (Glow border) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#BB86FC]/50 to-transparent blur-[1px]"></div>
-
-      <div className="max-w-[1980px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      {/* - Thay đổi px-8 md:px-16 thành px-12 md:px-24 hoặc px-32 để đẩy 2 đầu vào trong nhiều hơn.
+          - Sử dụng items-baseline thay vì items-center để các chữ to (LTK) và chữ nhỏ (Bản quyền) 
+            cùng nằm trên 1 đường kẻ ngang ở chân chữ.
+      */}
+      <div className="w-full max-w-[1440px] mx-auto px-12 md:px-24 lg:px-32 grid grid-cols-1 md:grid-cols-3 items-baseline gap-8 md:gap-4">
         
-        {/* Phần 1: Bản quyền */}
-        <div className="text-gray-400 text-sm flex flex-col sm:flex-row items-center gap-2">
-          <span>&copy; {new Date().getFullYear()} Lê Tuấn Khải. All rights reserved.</span>
-          <span className="hidden sm:inline text-gray-700">|</span>
-          <span className="text-gray-600">VKU Software Engineer</span>
+        <div className="text-xl font-bold text-white tracking-wide text-center md:text-left">
+          LTK<span className="text-purple-800">.</span>
         </div>
 
-        {/* Phần 2: Các liên kết Social (Tech Stack Style) */}
-        <div className="flex items-center gap-5">
-          {socialLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/5 hover:border-[#00f3ff]/30 hover:bg-white/10 transition-all duration-300 shadow-[0_0_10px_rgba(0,0,0,0.2)]"
-              title={`Connect on ${link.name}`}
-            >
-              {/* Icon nhỏ phát sáng nhẹ khi hover */}
-              <img 
-                src={link.icon} 
-                alt={link.name} 
-                className="w-5 h-5 group-hover:drop-shadow-[0_0_8px_#00f3ff] transition-all"
-              />
-              <span className="text-xs text-gray-300 font-tech uppercase tracking-widest group-hover:text-white transition-colors">
-                {link.name}
-              </span>
-            </a>
-          ))}
+        <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 text-sm text-gray-400 font-medium">
+            <a href="#about" className="hover:text-white transition-colors">About</a>
+            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          </div>
+          
+          <p className="text-[8px] text-gray-600 tracking-widest uppercase text-center">
+            Built with React, Tailwind CSS & Framer Motion
+          </p>
+        </div>
+
+        <div className="text-[11px] text-gray-500 flex flex-col xl:flex-row items-center justify-center md:justify-end gap-2 text-center md:text-right self-baseline">
+          <span className="whitespace-nowrap">&copy; {new Date().getFullYear()} Le Tuan Khai</span>
+          {/* <span className="hidden xl:inline text-gray-700">|</span> */}
+          {/* <span className="text-gray-600 whitespace-nowrap">Software Engineer</span> */}
         </div>
 
       </div>

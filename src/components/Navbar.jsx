@@ -31,7 +31,7 @@ function Navbar() {
     >
       <div className="max-w-[1980px] mx-auto px-6 md:px-12 flex items-center justify-between">
         
-        <a href="#home" className="text-2xl font-bold text-white font-sans tracking-wider hover:opacity-80 transition-opacity">
+        <a href="#home" className="text-xl font-bold text-white font-sans tracking-wider hover:opacity-80 transition-opacity">
           LTK<span className="text-neon-accent">.</span>
         </a>
 
