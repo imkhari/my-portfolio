@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WorkExp from './components/WorkExp';
 import Tech from './components/Tech';
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
@@ -47,6 +48,7 @@ function App() {
           <Hero />
           <WorkExp />
           <Tech />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />
