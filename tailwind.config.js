@@ -12,6 +12,8 @@ export default {
         'neon-accent': '#00f3ff', 
       },
       fontFamily: {
+        'sans': ['Be Vietnam Pro', 'sans-serif'], 
+        'mono': ['Space Mono', 'monospace'],
         'tech': ['Preahvihear', 'sans-serif']
       }
     },

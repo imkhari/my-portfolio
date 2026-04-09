@@ -1,7 +1,9 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import WorkExp from './components/WorkExp';
+import AboutMe from './components/AboutMe';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Tech from './components/Tech';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
@@ -46,7 +48,9 @@ function App() {
         <Navbar />
         <main className="w-full">
           <Hero />
-          <WorkExp />
+          <AboutMe />
+          <Experience />
+          <Projects />
           <Tech />
           <Testimonials />
           <Contact />
