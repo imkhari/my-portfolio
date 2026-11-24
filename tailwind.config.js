@@ -7,13 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'main-bg': '#11071F', 
-        'nav-bg': '#1A0B2E',
+        'main-bg': '#080312', 
+        'nav-bg': '#120726',
         'neon-accent': '#00f3ff', 
+        'purple-primary': '#a855f7',
+        'purple-glow': '#9333ea',
+        'purple-dark': '#0d0318',
+        'card-bg': '#11071F',
       },
       fontFamily: {
-        'sans': ['Be Vietnam Pro', 'sans-serif'], 
-        'mono': ['Space Mono', 'monospace'],
+        'sans': ['"Be Vietnam Pro"', 'sans-serif'], 
+        'mono': ['"Space Mono"', 'monospace'],
         'tech': ['Preahvihear', 'sans-serif']
       }
     },

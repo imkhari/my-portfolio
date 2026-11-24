@@ -18,21 +18,18 @@ function AboutMe() {
         }
     };
 
-    // --- Dữ liệu Thống kê (Đã thu gọn) ---
     const stats = [
         { number: "2+", label: "Years Experience" },
         { number: "15+", label: "Projects Completed" },
-        { number: "8+", label: "Tech Stacks" },
+        { number: "8+", label: "Core Technologies" },
         { number: "100%", label: "Passion & Focus" }
     ];
 
     return (
-        // Đã giảm py-24 xuống py-16 để section gọn gàng hơn
-        <section id="about" className="w-full py-16 px-6 relative z-10 font-sans">
-            {/* Giảm max-w-5xl xuống max-w-4xl để ép khối nội dung ôm sát nhau hơn */}
+        <section id="about" className="w-full py-20 px-6 relative z-10 font-sans">
             <div className="max-w-5xl mx-auto flex flex-col items-center">
                 
-                {/* --- Phần Header --- */}
+                {/* --- Header --- */}
                 <motion.div 
                     className="flex flex-col items-center text-center mb-12"
                     initial="hidden"
@@ -41,64 +38,58 @@ function AboutMe() {
                     variants={containerVariants}
                 >
                     <motion.div variants={itemVariants} className="inline-block border border-purple-primary/30 bg-purple-500/10 px-3 py-1 rounded-full mb-4">
-                        <span className="text-purple-primary text-[10px] md:text-xs font-bold tracking-widest uppercase">
+                        <span className="text-purple-300 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase">
                             About Me
                         </span>
                     </motion.div>
                     
-                    {/* Giảm size tiêu đề từ 5xl xuống 4xl */}
                     <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4 tracking-tight">
                         Crafting Digital Experiences
                     </motion.h2>
                     
-                    {/* Giảm size subtitle */}
                     <motion.p variants={itemVariants} className="max-w-xl text-gray-400 text-sm leading-relaxed">
                         A creative developer passionate about building products that merge great design with robust engineering.
                     </motion.p>
                 </motion.div>
 
-                {/* --- Phần Nội dung 2 cột --- */}
+                {/* --- 2 Columns Content --- */}
                 <motion.div 
-                    // Giảm gap từ 20 xuống 12
                     className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 w-full items-center"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                     variants={containerVariants}
                 >
-                    {/* CỘT TRÁI: Text Tiểu sử Full Stack */}
+                    {/* LEFT COLUMN: Bio */}
                     <motion.div variants={itemVariants} className="flex flex-col justify-center pr-0 lg:pr-6">
                         <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
-                            I'm a passionate <span className="text-white font-semibold">Full Stack Developer</span> and a student at <span className="text-purple-300 font-semibold">VKU</span>. I have a strong love for crafting beautiful, responsive user interfaces and building scalable, high-performance backend systems.
+                            Tôi là một <span className="text-white font-semibold">Full Stack Developer</span> hiện đang học tập tại <span className="text-purple-300 font-semibold">VKU</span>. Tôi yêu thích việc xây dựng các giao diện người dùng mượt mà, trực quan cùng hệ thống backend an toàn, có khả năng mở rộng cao.
                         </p>
                         <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
-                            I specialize in building end-to-end modern applications. From pixel-perfect frontends using <span className="text-white">React & Tailwind</span> to robust backend architectures with <span className="text-white">Spring Boot & Node.js</span>. When I'm not coding, you'll find me exploring new technologies or contributing to open-source.
+                            Tôi có kinh nghiệm phát triển ứng dụng từ đầu đến cuối (end-to-end): từ frontend với <span className="text-white font-medium">React, Vue & Tailwind CSS</span> đến kiến trúc backend với <span className="text-white font-medium">NestJS, Node.js & Docker</span>.
                         </p>
                         
-                        {/* Dòng Location gọn gàng */}
+                        {/* Location */}
                         <div className="flex items-center gap-3 mt-auto opacity-70">
-                            <div className="h-[1px] bg-white/10 flex-1"></div>
-                            <span className="text-[9px] md:text-[10px] text-gray-500 font-bold tracking-[0.2em] uppercase">
+                            <div className="h-[1px] bg-white/10 flex-1" />
+                            <span className="text-[10px] font-mono text-purple-300 tracking-[0.2em] uppercase">
                                 Da Nang City, Vietnam
                             </span>
-                            <div className="h-[1px] bg-white/10 flex-1"></div>
+                            <div className="h-[1px] bg-white/10 flex-1" />
                         </div>
                     </motion.div>
 
-                    {/* CỘT PHẢI: Lưới Grid 4 thẻ Thống kê (Nhỏ gọn hơn) */}
+                    {/* RIGHT COLUMN: 4 Stat Cards */}
                     <motion.div variants={itemVariants} className="grid grid-cols-2 gap-3 md:gap-4">
                         {stats.map((stat, index) => (
                             <motion.div 
                                 key={index}
-                                // Giảm padding thẻ từ p-8 xuống p-5 md:p-6
-                                className="bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl p-5 md:p-6 flex flex-col items-start justify-center hover:bg-white/[0.04] hover:border-purple-500/30 transition-all duration-300 group"
+                                className="bg-[#0e061c]/80 backdrop-blur-md border border-white/10 rounded-2xl p-5 md:p-6 flex flex-col items-start justify-center hover:bg-[#130826]/90 hover:border-purple-500/40 hover:shadow-[0_8px_25px_rgba(168,85,247,0.15)] transition-all duration-300 group"
                             >
-                                {/* Giảm size số từ 4xl xuống 3xl */}
                                 <h3 className="text-2xl md:text-3xl font-extrabold text-purple-400 mb-1 group-hover:scale-105 transform origin-left transition-transform duration-300">
                                     {stat.number}
                                 </h3>
-                                {/* Giảm size chữ phụ */}
-                                <p className="text-[10px] md:text-xs text-gray-500 font-mono tracking-wide">
+                                <p className="text-[10px] md:text-xs text-gray-400 font-mono tracking-wide">
                                     {stat.label}
                                 </p>
                             </motion.div>

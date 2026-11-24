@@ -18,7 +18,7 @@ function Contact() {
             formRef.current,
             'QyujRjBZR3DiJnWKb'
         )
-            .then((result) => {
+            .then(() => {
                 setIsSubmitting(false);
                 setSubmitStatus('success');
                 formRef.current.reset();
