@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/useLanguage';
 
 const ExternalLinkIcon = () => (
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,97 +20,9 @@ const StarIcon = () => (
 
 function Projects() {
     const [filter, setFilter] = useState('All');
+    const { t } = useLanguage();
 
-    const projects = [
-        {
-            id: 1,
-            title: "ERP WorkOS - Enterprise System",
-            domain: "workos.omega.corp",
-            description: "Hệ thống vận hành doanh nghiệp toàn diện, chuẩn hóa luồng xử lý dữ liệu và tự động hóa tác vụ liên phòng ban.",
-            category: "Web App",
-            badge: "Enterprise",
-            tech: ["Next.js", "TypeScript", "NestJS", "MySQL", "N8n", "Docker"],
-            featured: true,
-            gradient: "from-purple-900/60 via-indigo-950/80 to-purple-950/90",
-            accentColor: "border-purple-500/30",
-            github: "https://github.com/imkhari",
-            live: "#"
-        },
-        {
-            id: 2,
-            title: "PetSocial Mobile Chat App",
-            domain: "app.petsocial.io",
-            description: "Ứng dụng nhắn tin di động bảo mật cao cho nội bộ, hỗ trợ kênh chat thời gian thực và quản lý phòng tương tác.",
-            category: "Mobile",
-            badge: "Mobile App",
-            tech: ["React Native", "Expo", "Node.js", "Firebase", "WebSockets"],
-            featured: true,
-            gradient: "from-blue-950/70 via-indigo-900/60 to-purple-950/80",
-            accentColor: "border-cyan-500/30",
-            github: "https://github.com/imkhari",
-            live: "#"
-        },
-        {
-            id: 3,
-            title: "ChoBan.com.vn - Freelance Platform",
-            domain: "choban.com.vn",
-            description: "Sàn kết nối dự án công nghệ và cộng đồng 25,000+ lập trình viên IT, tích hợp xác thực thanh toán và matching hồ sơ.",
-            category: "Web App",
-            badge: "Production",
-            tech: ["VueJS", "NuxtJS", "NestJS", "MongoDB", "Docker", "CI/CD"],
-            featured: true,
-            gradient: "from-fuchsia-950/70 via-purple-900/60 to-slate-950/90",
-            accentColor: "border-fuchsia-500/30",
-            github: "https://github.com/imkhari",
-            live: "https://choban.com.vn"
-        },
-        {
-            id: 4,
-            title: "Interactive Personal Portfolio",
-            domain: "letuankhai.dev",
-            description: "Portfolio cá nhân phong cách Cyber-Clean với giao diện tối ưu, Splash Screen mượt mà và hoạt ảnh Framer Motion.",
-            category: "Web App",
-            badge: "Open Source",
-            tech: ["React 19", "Tailwind CSS", "Framer Motion", "Vite"],
-            featured: false,
-            gradient: "from-purple-950/60 via-slate-900/80 to-indigo-950/80",
-            accentColor: "border-purple-400/30",
-            github: "https://github.com/imkhari",
-            live: "#"
-        },
-        {
-            id: 5,
-            title: "E-Commerce & Payment Gateway",
-            domain: "shop.techscale.dev",
-            description: "Hệ thống bán hàng trực tuyến full-stack tích hợp cổng thanh toán trực tuyến, quản lý tồn kho và xác thực JWT.",
-            category: "Web App",
-            badge: "Full Stack",
-            tech: ["Node.js", "Express", "MongoDB", "React", "Redux", "Stripe"],
-            featured: false,
-            gradient: "from-indigo-950/70 via-purple-950/60 to-cyan-950/80",
-            accentColor: "border-indigo-400/30",
-            github: "https://github.com/imkhari",
-            live: "#"
-        },
-        {
-            id: 6,
-            title: "Tech Articles & Insights Blog",
-            domain: "blog.devnotes.vn",
-            description: "Nền tảng blog cá nhân chia sẻ kiến thức kiến trúc hệ thống, DevOps và kinh nghiệm tối ưu hiệu năng frontend.",
-            category: "Web App",
-            badge: "Jamstack",
-            tech: ["Next.js", "GraphQL", "Tailwind CSS", "Markdown"],
-            featured: false,
-            gradient: "from-slate-950/80 via-purple-950/60 to-purple-900/50",
-            accentColor: "border-pink-500/30",
-            github: "https://github.com/imkhari",
-            live: "#"
-        }
-    ];
-
-    const filters = ['All', 'Web App', 'Mobile'];
-
-    const filteredProjects = projects.filter(project => 
+    const filteredProjects = t.projects.items.filter(project => 
         filter === 'All' ? true : project.category === filter
     );
 
@@ -132,18 +45,18 @@ function Projects() {
                     className="flex flex-col items-center text-center mb-10"
                     initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={containerVariants}
                 >
-                    <motion.div variants={headerVariants} className="inline-block border border-purple-500/30 bg-purple-500/10 px-3 py-1 rounded-full mb-4">
-                        <span className="text-purple-300 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase">
-                            Featured Projects
+                    <motion.div variants={headerVariants} className="inline-block border border-indigo-400/25 bg-indigo-500/10 px-3.5 py-1 rounded-full mb-4">
+                        <span className="text-indigo-300 text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase">
+                            {t.projects.badge}
                         </span>
                     </motion.div>
                     
-                    <motion.h2 variants={headerVariants} className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3 tracking-tight">
-                        Selected Works & Platforms
+                    <motion.h2 variants={headerVariants} className="text-3xl md:text-4xl font-extrabold text-zinc-50 leading-tight mb-3 tracking-tight">
+                        {t.projects.title}
                     </motion.h2>
                     
-                    <motion.p variants={headerVariants} className="max-w-xl text-gray-400 text-sm leading-relaxed">
-                        Các sản phẩm thực chiến và dự án tiêu biểu thể hiện năng lực kiến trúc hệ thống, phát triển giao diện và tối ưu hóa trải nghiệm người dùng.
+                    <motion.p variants={headerVariants} className="max-w-xl text-zinc-400 text-sm leading-relaxed">
+                        {t.projects.subtitle}
                     </motion.p>
                 </motion.div>
 
@@ -152,17 +65,17 @@ function Projects() {
                     className="flex flex-wrap justify-center gap-2 mb-10"
                     initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 >
-                    {filters.map(f => (
+                    {t.projects.filters.map(f => (
                         <button
-                            key={f}
-                            onClick={() => setFilter(f)}
+                            key={f.key}
+                            onClick={() => setFilter(f.key)}
                             className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-                                filter === f 
-                                ? 'bg-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.5)] border border-purple-400' 
-                                : 'bg-white/5 text-gray-400 hover:text-purple-300 hover:bg-white/10 border border-white/5'
+                                filter === f.key 
+                                ? 'bg-indigo-500 text-white shadow-[0_0_16px_rgba(99,102,241,0.35)] border border-indigo-400/60' 
+                                : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                             }`}
                         >
-                            {f}
+                            {f.label}
                         </button>
                     ))}
                 </motion.div>
@@ -174,30 +87,30 @@ function Projects() {
                             <motion.div
                                 key={project.id}
                                 layout
-                                initial={{ opacity: 0, scale: 0.95 }}
+                                initial={{ opacity: 0, scale: 0.96 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.95 }}
-                                transition={{ duration: 0.3 }}
-                                className={`group flex flex-col bg-[#0e061c]/70 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-purple-400/50 hover:shadow-[0_10px_35px_rgba(168,85,247,0.2)] transition-all duration-300`}
+                                exit={{ opacity: 0, scale: 0.96 }}
+                                transition={{ duration: 0.25 }}
+                                className="group flex flex-col bg-[#11121A]/85 backdrop-blur-md border border-white/[0.08] rounded-2xl overflow-hidden hover:border-indigo-400/40 hover:shadow-[0_12px_35px_rgba(99,102,241,0.12)] transition-all duration-300"
                             >
                                 {/* 1. Mockup Header & Banner */}
-                                <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${project.gradient} border-b border-white/5 flex flex-col justify-between p-4`}>
+                                <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${project.gradient} border-b border-white/[0.06] flex flex-col justify-between p-4`}>
                                     
                                     {/* Tech Window Bar */}
                                     <div className="flex items-center justify-between z-10">
                                         <div className="flex items-center gap-1.5">
-                                            <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                                            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                                            <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
+                                            <span className="w-2.5 h-2.5 rounded-full bg-zinc-600/80 inline-block group-hover:bg-rose-400/80 transition-colors" />
+                                            <span className="w-2.5 h-2.5 rounded-full bg-zinc-600/80 inline-block group-hover:bg-amber-400/80 transition-colors" />
+                                            <span className="w-2.5 h-2.5 rounded-full bg-zinc-600/80 inline-block group-hover:bg-emerald-400/80 transition-colors" />
                                         </div>
-                                        <span className="text-[10px] font-mono text-gray-400/80 bg-black/40 px-2.5 py-0.5 rounded-full border border-white/5">
+                                        <span className="text-[10px] font-mono text-zinc-400 bg-black/40 px-2.5 py-0.5 rounded-full border border-white/[0.06]">
                                             {project.domain}
                                         </span>
                                     </div>
 
                                     {/* Center Graphic Silhouette */}
-                                    <div className="flex flex-col items-center justify-center my-auto z-0 opacity-80 group-hover:scale-105 transition-transform duration-500">
-                                        <span className="text-xs font-mono font-bold tracking-wider text-purple-200/90 uppercase px-3 py-1 rounded-md bg-white/5 border border-white/10">
+                                    <div className="flex flex-col items-center justify-center my-auto z-0 opacity-85 group-hover:scale-105 transition-transform duration-500">
+                                        <span className="text-xs font-mono font-semibold tracking-wider text-indigo-200 uppercase px-3 py-1 rounded-md bg-white/[0.04] border border-white/10">
                                             {project.badge}
                                         </span>
                                     </div>
@@ -205,23 +118,23 @@ function Projects() {
                                     {/* Bottom badges */}
                                     <div className="flex items-center justify-between z-10">
                                         {project.featured && (
-                                            <span className="bg-purple-600/90 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-md">
-                                                <StarIcon /> Featured
+                                            <span className="bg-indigo-500/85 backdrop-blur-md text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                                <StarIcon /> {t.projects.featuredBadge}
                                             </span>
                                         )}
-                                        <span className="text-[10px] font-mono text-purple-300 ml-auto">
+                                        <span className="text-[10px] font-mono text-sky-300/80 ml-auto">
                                             {project.category}
                                         </span>
                                     </div>
 
                                     {/* Hover Overlay Buttons */}
-                                    <div className="absolute inset-0 bg-[#080312]/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-20">
+                                    <div className="absolute inset-0 bg-[#09090F]/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-20">
                                         <a 
                                             href={project.live} 
                                             target="_blank" 
                                             rel="noreferrer" 
-                                            title="View Demo"
-                                            className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-500 hover:scale-110 transition-all shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+                                            title={t.projects.viewDemo}
+                                            className="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center hover:bg-indigo-400 hover:scale-110 transition-all shadow-[0_0_20px_rgba(99,102,241,0.45)]"
                                         >
                                             <ExternalLinkIcon />
                                         </a>
@@ -229,7 +142,7 @@ function Projects() {
                                             href={project.github} 
                                             target="_blank" 
                                             rel="noreferrer" 
-                                            title="GitHub Code"
+                                            title={t.projects.githubCode}
                                             className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center border border-white/20 hover:bg-white/20 hover:scale-110 transition-all"
                                         >
                                             <GithubIcon />
@@ -239,18 +152,18 @@ function Projects() {
 
                                 {/* 2. Content Info */}
                                 <div className="p-5 flex flex-col flex-grow">
-                                    <h3 className="text-white font-bold text-base mb-2 group-hover:text-purple-300 transition-colors">
+                                    <h3 className="text-zinc-100 font-bold text-base mb-2 group-hover:text-indigo-300 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-400 text-xs leading-relaxed mb-5 line-clamp-3">
+                                    <p className="text-zinc-400 text-xs leading-relaxed mb-5 line-clamp-3">
                                         {project.description}
                                     </p>
                                     
                                     {/* Tech Tags */}
-                                    <div className="mt-auto flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
-                                        {project.tech.map(t => (
-                                            <span key={t} className="text-[9px] font-mono text-purple-200/90 bg-purple-950/40 border border-purple-500/20 px-2 py-0.5 rounded-md">
-                                                {t}
+                                    <div className="mt-auto flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                                        {project.tech.map(techName => (
+                                            <span key={techName} className="text-[9px] font-mono text-zinc-300 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded-md">
+                                                {techName}
                                             </span>
                                         ))}
                                     </div>

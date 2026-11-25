@@ -4,23 +4,23 @@
 
 @layer base {
   body {
-    background-color: #080312;
-    color: #ffffff;
+    background-color: #09090F;
+    color: #F4F4F5;
     font-family: 'Be Vietnam Pro', sans-serif;
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #080312;
+  background: #09090F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a1145;
-  border-radius: 4px;
+  background: #27273A;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6b21a8;
+  background: #4F46E5;
 }
